@@ -1,0 +1,38 @@
+<resources>
+    <string name="app_name">CrimeMap</string>
+
+    <!-- Request for SF police report data, after a given date (%s), and searching for a key term
+     ($q) from all the columns -->
+    <string name="SFPD_Incidents_search_term_request" formatted="false">https://data.sfgov.org/resource/cuks-n6tp.geojson?$q=\'%s\'&amp;$where=date>\'%s\'</string>
+
+    <!-- Request for SF police report data, after a given date (%s), giving a count of
+    incidents, and providing an average of the lat. and lon. coordinates per incident,
+    all grouped by district, and ordered by the incident count. -->
+    <string name="SFPD_Incidents_request">https://data.sfgov.org/resource/cuks-n6tp.geojson?$select=count(*),avg(x),avg(y)&amp;$group=pddistrict&amp;$where=date>\'%s\'&amp;$order=count</string>
+
+    <!-- term selecting descending order to be added to a query including the order request -->
+    <string name="DESC">\u002520DESC</string>
+
+    <!-- unused, but interesting search term, creating map regions for district data -->
+    <string name="SFPD_Incidents_request_3">https://data.sfgov.org/resource/cuks-n6tp.geojson?$select=count(*),simplify_preserve_topology(convex_hull(location),1)&amp;$group=pddistrict&amp;$where=date>\'%s\'</string>
+
+
+    <!-- the date format to be used in any data.sfgov.org requests involving date -->
+    <string name="SFPD_Incidents_query_date_format">"yyyy-MM-dd'T'HH:mm:ss.SSS"</string>
+
+
+    <!-- strings used to indicate search -->
+    <string name="search_title">Search</string>
+    <string name="search_hint">search term</string>
+    <string name="search_feedback">Search \"%s\"</string>
+
+    <string name="number_of_incidents">Number of Incidents: %s</string>
+    <string name="incident_count">Incident Count: %s</string>
+
+
+    <!-- error strings -->
+    <string name="file_parsing_error">Results could not be read</string>
+    <string name="server_error">System Error</string>
+
+
+</resources>
